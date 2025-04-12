@@ -58,6 +58,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.cups-brother-hll2350dw ];
 
   # Enable sound with pipewire.
   security.rtkit.enable = true;
