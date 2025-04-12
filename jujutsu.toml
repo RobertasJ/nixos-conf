@@ -1,5 +1,6 @@
 [ui]
 editor = "zeditor -a -w"
+default-command = "log"
 
 [user]
 name = "RobertasJ"
