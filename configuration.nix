@@ -91,6 +91,12 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "_robertas";
 
+  services.fprintd = {
+    enable = true;
+    tod.enable = true;
+    tod.driver = pkgs.libfprint-2-tod1-goodix;
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
