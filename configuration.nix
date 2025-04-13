@@ -5,6 +5,7 @@
     system/hardware-configuration.nix
     system/services.nix
     system/locale.nix
+    system/mounts.nix
     packages/system.nix
     programs/steam.nix
   ];
