@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
-    packages/_robertas.nix
-    programs/firefox.nix
-    programs/zed-editor.nix
+    _robertas/packages.nix
+    _robertas/services.nix
+    _robertas/programs/firefox.nix
+    _robertas/programs/zed-editor.nix
   ];
 
   home.username = "_robertas";
@@ -13,7 +14,7 @@
   home.file = { };
 
   xdg.configFile = {
-    "jj/config.toml".source = ./jujutsu.toml;
+    "jj/config.toml".source = _robertas/jujutsu.toml;
   };
 
   home.sessionVariables = {

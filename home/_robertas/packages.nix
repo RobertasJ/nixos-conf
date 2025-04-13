@@ -14,5 +14,6 @@
     jujutsu
     kdePackages.kdeconnect-kde
     kdePackages.plasma-browser-integration
+    arrpc
   ];
 }

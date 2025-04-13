@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -6,9 +6,10 @@
     system/services.nix
     system/locale.nix
     system/mounts.nix
-    packages/system.nix
-    programs/steam.nix
+    system/packages.nix
+    system/programs/steam.nix
   ];
+
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
