@@ -5,6 +5,7 @@
     extensions = [
       "nix"
       "toml"
+      "bash"
     ];
 
     userSettings = {

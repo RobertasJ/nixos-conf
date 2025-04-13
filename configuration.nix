@@ -7,12 +7,14 @@
     system/locale.nix
     system/mounts.nix
     system/packages.nix
+    system/virtualization.nix
     system/programs/steam.nix
   ];
 
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
+    systemd-boot.configurationLimit = 3;
   };
 
   networking = {
