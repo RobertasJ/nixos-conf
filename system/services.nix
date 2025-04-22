@@ -28,4 +28,6 @@
     tod.enable = true;
     tod.driver = pkgs.libfprint-2-tod1-goodix;
   };
+
+  services.fwupd.enable = true;
 }
