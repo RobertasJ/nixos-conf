@@ -2,7 +2,14 @@
 {
   programs.firefox = {
     enable = true;
+
     policies = {
+      OfferToSaveLogins = false;
+
+      Preferences = {
+        "browser.sessionstore.resuming_after_os_restart" = true;
+      };
+
       ExtensionSettings = {
         # "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
         # uBlock Origin:
