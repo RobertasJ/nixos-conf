@@ -7,7 +7,6 @@
     cargo
     clippy
     btop
-    _1password-gui
     kdePackages.kate
     vesktop
     nixd
