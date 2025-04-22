@@ -23,6 +23,13 @@
           };
         };
       };
+      lsp = {
+        rust-analyzer = {
+          binary = {
+            path_lookup = true;
+          };
+        };
+      };
     };
   };
 }

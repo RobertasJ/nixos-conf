@@ -3,7 +3,9 @@
   home.packages = with pkgs; [
     kdePackages.yakuake
     zoxide
-    rustup
+    rustc
+    cargo
+    clippy
     btop
     _1password-gui
     kdePackages.kate
@@ -15,5 +17,8 @@
     kdePackages.kdeconnect-kde
     kdePackages.plasma-browser-integration
     arrpc
+    qmk
+    chromium
+    vscode
   ];
 }
