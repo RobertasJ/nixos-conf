@@ -1,16 +1,10 @@
-{ ... }:
+{ lib, ... }:
 
 {
-  imports = [
-    system/hardware-configuration.nix
-    system/services.nix
-    system/locale.nix
-    system/mounts.nix
-    system/packages.nix
-    system/virtualization.nix
-    system/boot.nix
-    system/programs/steam.nix
-  ];
+
+  imports = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
+    lib.filesystem.listFilesRecursive ./system
+  );
 
   networking = {
     hostName = "nixos";
@@ -27,12 +21,6 @@
   };
 
   programs.partition-manager.enable = true;
-
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 
   networking.firewall.enable = false;
 

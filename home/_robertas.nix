@@ -1,12 +1,10 @@
-{ ... }:
+{ lib, ... }:
 
 {
-  imports = [
-    _robertas/packages.nix
-    _robertas/services.nix
-    _robertas/programs/firefox.nix
-    _robertas/programs/zed-editor.nix
-  ];
+
+  imports = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
+    lib.filesystem.listFilesRecursive ./_robertas
+  );
 
   home.username = "_robertas";
   home.homeDirectory = "/home/_robertas";
