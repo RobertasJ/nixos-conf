@@ -4,8 +4,10 @@
     kdePackages.yakuake
     zoxide
     rustc
+    rust-analyzer
     cargo
     clippy
+    gcc
     btop
     kdePackages.kate
     vesktop
