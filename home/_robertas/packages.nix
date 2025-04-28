@@ -12,7 +12,6 @@
     nixd
     nil
     nixfmt-rfc-style
-    jujutsu
     kdePackages.kdeconnect-kde
     kdePackages.plasma-browser-integration
     arrpc

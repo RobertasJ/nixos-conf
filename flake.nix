@@ -2,19 +2,17 @@
   description = "System configuration";
 
   inputs = {
-    # NixOS official package source, using the nixos-24.11 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      # The `follows` keyword in inputs is used for inheritance.
-      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
-      # the `inputs.nixpkgs` of the current flake,
-      # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    jujutsu.url = "github:jj-vcs/jj";
+    jujutsu = {
+      url = "github:jj-vcs/jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -27,43 +25,51 @@
     let
       system = "x86_64-linux";
       user = "_robertas";
+      hostname = "nixos";
     in
     {
       inherit system;
-      # Please replace my-nixos with your hostname
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        modules = [
-          {
-            nixpkgs.overlays = [
-              jujutsu.overlays.default
-            ];
-            nixpkgs.config = {
-              allowUnfree = true;
-            };
-            nix.settings.experimental-features = [
-              "nix-command"
-              "flakes"
-            ];
-          }
 
-          ./configuration.nix
+      nixosConfigurations.${hostname} =
+        let
+          args = {
+            inherit
+              system
+              hostname
+              user
+              inputs
+              ;
+          };
+        in
+        nixpkgs.lib.nixosSystem {
+          specialArgs = args;
+          modules = [
+            # Basic system configuration
+            {
+              nixpkgs.config = {
+                allowUnfree = true;
+              };
+              nixpkgs.overlays = [
+                jujutsu.overlays.default
+              ];
+              nix.settings.experimental-features = [
+                "nix-command"
+                "flakes"
+              ];
+            }
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${user} = import home/_robertas.nix;
-            home-manager.backupFileExtension = "backup";
-          }
+            # Core system configuration
+            ./configuration.nix
 
-          {
-            config._module.args = {
-              currentSystem = system;
-              currentUser = user;
-              inputs = inputs;
-            };
-          }
-        ];
-      };
+            # Home manager configuration
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${user} = import ./home.nix args;
+              home-manager.backupFileExtension = "backup";
+            }
+          ];
+        };
     };
 }

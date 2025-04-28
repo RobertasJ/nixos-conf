@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
@@ -21,7 +21,7 @@
   };
 
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "_robertas";
+  services.displayManager.autoLogin.user = user;
 
   services.fprintd = {
     enable = true;

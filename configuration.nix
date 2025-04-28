@@ -1,4 +1,9 @@
-{ lib, ... }:
+{
+  lib,
+  hostname,
+  user,
+  ...
+}:
 
 {
 
@@ -7,11 +12,11 @@
   );
 
   networking = {
-    hostName = "nixos";
+    hostName = hostname;
     networkmanager.enable = true;
   };
 
-  users.users._robertas = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "Robertas Jankauskas";
     extraGroups = [

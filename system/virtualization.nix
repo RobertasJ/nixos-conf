@@ -1,8 +1,8 @@
-{ ... }:
+{ user, ... }:
 {
   programs.virt-manager.enable = true;
 
-  users.users."_robertas" = {
+  users.users.${user} = {
     extraGroups = [
       "libvirtd"
       "kvm"

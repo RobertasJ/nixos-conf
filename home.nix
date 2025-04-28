@@ -1,19 +1,17 @@
-{ lib, ... }:
+args:
+{ lib, user, ... }:
 
 {
-
   imports = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
-    lib.filesystem.listFilesRecursive ./_robertas
+    lib.filesystem.listFilesRecursive home/${args.user}
   );
 
-  home.username = "_robertas";
-  home.homeDirectory = "/home/_robertas";
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
+
+  _module.args = args;
 
   home.file = { };
-
-  xdg.configFile = {
-    "jj/config.toml".source = _robertas/jujutsu.toml;
-  };
 
   home.sessionVariables = {
     EDITOR = "nvim";
