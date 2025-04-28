@@ -19,5 +19,6 @@
     qmk
     chromium
     vscode
+    megacmd
   ];
 }

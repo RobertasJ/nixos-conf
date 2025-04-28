@@ -1,0 +1,2 @@
+-f:computer.nix
+-f:system/hardware-configuration.nix
