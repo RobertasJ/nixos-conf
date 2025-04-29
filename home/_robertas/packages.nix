@@ -10,6 +10,7 @@
     # Development
     rustc
     rust-analyzer
+    rustfmt
     cargo
     clippy
     gcc
@@ -17,6 +18,7 @@
     nil
     nixfmt-rfc-style
     vscode
+    rocmPackages.clang
 
     # System Tools
     btop
