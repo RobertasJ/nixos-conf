@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     # KDE Applications
     kdePackages.yakuake
-    zoxide
     kdePackages.kate
     kdePackages.kdeconnect-kde
     kdePackages.plasma-browser-integration
