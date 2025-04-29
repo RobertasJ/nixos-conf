@@ -15,6 +15,7 @@
           language_servers = [
             "nil"
             "nixd"
+            "git-firefly"
           ];
           formatter = {
             external = {
