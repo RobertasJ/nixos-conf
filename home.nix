@@ -1,13 +1,13 @@
 args:
-{ lib, user, ... }:
+{ lib, ... }:
 
 {
   imports = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
     lib.filesystem.listFilesRecursive home/${args.user}
   );
 
-  home.username = user;
-  home.homeDirectory = "/home/${user}";
+  home.username = args.user;
+  home.homeDirectory = "/home/${args.user}";
 
   _module.args = args;
 

@@ -13,6 +13,12 @@
       url = "github:jj-vcs/jj";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -20,6 +26,7 @@
       nixpkgs,
       home-manager,
       jujutsu,
+      plasma-manager,
       ...
     }@inputs:
     let
@@ -66,6 +73,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
               home-manager.users.${user} = import ./home.nix args;
               home-manager.backupFileExtension = "backup";
             }
