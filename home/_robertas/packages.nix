@@ -29,5 +29,6 @@
     vesktop
     arrpc
     chromium
+    kronometer
   ];
 }
