@@ -18,6 +18,7 @@
     nil
     nixfmt-rfc-style
     vscode
+    android-studio
     rocmPackages.clang
 
     # System Tools
