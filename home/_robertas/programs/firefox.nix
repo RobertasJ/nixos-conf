@@ -8,6 +8,7 @@
 
       Preferences = {
         "browser.sessionstore.resuming_after_os_restart" = true;
+        "browser.tabs.groups.enabled" = true;
       };
 
       ExtensionSettings = {
