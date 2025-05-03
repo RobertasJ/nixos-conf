@@ -6,6 +6,7 @@
       "nix"
       "toml"
       "bash"
+      "vscode-dark-plus"
     ];
 
     userSettings = {
