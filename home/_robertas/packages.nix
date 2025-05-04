@@ -31,5 +31,6 @@
     arrpc
     chromium
     kronometer
+    prismlauncher
   ];
 }

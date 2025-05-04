@@ -9,11 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    jujutsu = {
-      url = "github:jj-vcs/jj";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     plasma-manager = {
       url = "github:pjones/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +20,6 @@
     {
       nixpkgs,
       home-manager,
-      jujutsu,
       plasma-manager,
       ...
     }@inputs:
@@ -56,9 +50,6 @@
               nixpkgs.config = {
                 allowUnfree = true;
               };
-              nixpkgs.overlays = [
-                jujutsu.overlays.default
-              ];
               nix.settings.experimental-features = [
                 "nix-command"
                 "flakes"
