@@ -23,11 +23,5 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = user;
 
-  services.fprintd = {
-    enable = true;
-    tod.enable = true;
-    tod.driver = pkgs.libfprint-2-tod1-goodix;
-  };
-
   services.fwupd.enable = true;
 }

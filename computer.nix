@@ -1,1 +1,1 @@
-"framework-laptop"
+"frameword-laptop"

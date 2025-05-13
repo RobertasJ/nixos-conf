@@ -1,9 +1,13 @@
 { pkgs, ... }:
 {
+  systemd.services."getty@tty1".enable = false;
+
+  systemd.services."autovt@tty1".enable = false;
+
   boot = {
     plymouth = {
       enable = true;
-      theme = "deus_ex";
+      theme = "nixos-bgrt";
       themePackages = with pkgs; [
         nixos-bgrt-plymouth
         (adi1090x-plymouth-themes.override {
@@ -19,6 +23,7 @@
     kernelParams = [
       "quiet"
       "splash"
+      "vt.global_cursor_default=0"
       "boot.shell_on_fail"
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"

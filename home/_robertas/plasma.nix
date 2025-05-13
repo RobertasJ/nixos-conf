@@ -5,9 +5,9 @@
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
     };
-    startup.startupScript."start_mega-cmd" = {
+    startup.startupScript."start_mega-sync" = {
       text = ''
-        mega-cmd
+        mega-sync
       '';
       priority = 4;
     };

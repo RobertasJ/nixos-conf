@@ -17,7 +17,7 @@
     nixd
     nil
     nixfmt-rfc-style
-    vscode
+    vscode-fhs
     android-studio
     rocmPackages.clang
 

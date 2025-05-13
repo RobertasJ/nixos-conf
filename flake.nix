@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager?ref=pull/6993/head";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -27,6 +27,12 @@
       system = "x86_64-linux";
       user = "_robertas";
       hostname = "nixos";
+      computer = {
+        current = import ./computer.nix;
+        laptop = "framework-laptop";
+        pc = "pc";
+      };
+
     in
     {
       inherit system;
@@ -39,6 +45,7 @@
               hostname
               user
               inputs
+              computer
               ;
           };
         in

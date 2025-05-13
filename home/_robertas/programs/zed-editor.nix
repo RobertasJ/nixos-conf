@@ -1,7 +1,14 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.zed-editor = {
     enable = true;
+    extraPackages = with pkgs; [
+      rustfmt
+      rust-analyzer
+      nixd
+      nil
+      nixfmt-rfc-style
+    ];
     extensions = [
       "nix"
       "toml"
@@ -22,13 +29,6 @@
             external = {
               command = "nixfmt";
             };
-          };
-        };
-      };
-      lsp = {
-        rust-analyzer = {
-          binary = {
-            path_lookup = true;
           };
         };
       };
