@@ -33,7 +33,7 @@
       timeout = 0;
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-      systemd-boot.configurationLimit = 3;
+      systemd-boot.configurationLimit = 10;
     };
   };
 }

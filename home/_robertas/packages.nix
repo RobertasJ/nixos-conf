@@ -24,7 +24,7 @@
     # System Tools
     btop
     qmk
-    megacmd
+    megasync
 
     # Applications
     vesktop
