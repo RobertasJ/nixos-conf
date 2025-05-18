@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, computer, ... }:
 {
   systemd.services."getty@tty1".enable = false;
 
@@ -30,7 +30,7 @@
     ];
 
     loader = {
-      timeout = 0;
+      timeout = if computer.current == computer.laptop then 0 else 5;
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 10;
