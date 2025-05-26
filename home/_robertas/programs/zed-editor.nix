@@ -42,12 +42,6 @@
           "space t l" = "pane::ActivateNextItem";
           "space c r" = "editor::Rename";
           "space t h" = "pane::ActivatePreviousItem";
-        };
-      }
-      {
-        # not editing and not insert mode
-        context = "vim_mode == normal";
-        bindings = {
           "space q q" = "workspace::CloseWindow";
           "space e" = "workspace::ToggleLeftDock";
           "space space" = "file_finder::Toggle";
@@ -64,6 +58,7 @@
           "alt-right" = "editor::AcceptPartialEditPrediction";
           "alt-j" = "editor::NextEditPrediction";
           "alt-k" = "editor::PreviousEditPrediction";
+          "ctrl-s" = "workspace::SaveAll";
         };
       }
       {
