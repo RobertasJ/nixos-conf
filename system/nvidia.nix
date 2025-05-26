@@ -16,10 +16,14 @@ in
   config = mkIf cfg.enable {
     hardware.graphics = {
       enable = true;
-      extraPackages = with pkgs; [nvidia-vaapi-driver];
+      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     };
 
     services.xserver.videoDrivers = [ "nvidia" ];
-    hardware.nvidia.open = true;
+    hardware.nvidia = {
+      open = true;
+      powerManagement.enable = true;
+      modesetting.enable = true;
+    };
   };
 }
