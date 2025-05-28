@@ -25,6 +25,7 @@
     btop
     qmk
     megasync
+    ffmpeg
 
     # Applications
     vesktop
@@ -32,5 +33,6 @@
     chromium
     kronometer
     prismlauncher
+    obs-studio
   ];
 }
