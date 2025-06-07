@@ -22,7 +22,7 @@
     rocmPackages.clang
 
     # System Tools
-    btop
+    btop-rocm
     qmk
     megasync
     ffmpeg
@@ -34,5 +34,8 @@
     kronometer
     prismlauncher
     obs-studio
+    r2modman
+    wlx-overlay-s
+    bs-manager
   ];
 }
