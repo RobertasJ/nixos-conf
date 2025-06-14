@@ -1,1 +1,1 @@
-"pc"
+"framework-laptop"

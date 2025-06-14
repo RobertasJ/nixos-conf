@@ -17,6 +17,11 @@
     ];
 
     userSettings = {
+      terminal = {
+        line_height = {
+          custom = 1;
+        };
+      };
       vim_mode = true;
       languages = {
         Nix = {

@@ -24,6 +24,7 @@ in
       open = true;
       powerManagement.enable = true;
       modesetting.enable = true;
+
     };
   };
 }
