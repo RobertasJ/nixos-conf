@@ -8,54 +8,25 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "tmpfs";
-      fsType = "tmpfs";
-    };
-
-  fileSystems."/iso" =
-    { device = "/dev/disk/by-uuid/1980-01-01-00-00-00-00";
-      fsType = "iso9660";
-    };
-
-  fileSystems."/nix/.ro-store" =
-    { device = "/iso/nix-store.squashfs";
-      fsType = "squashfs";
-      options = [ "loop" ];
-    };
-
-  fileSystems."/nix/.rw-store" =
-    { device = "tmpfs";
-      fsType = "tmpfs";
-    };
-
-  fileSystems."/nix/store" =
-    { device = "overlay";
-      fsType = "overlay";
-    };
-
-  fileSystems."/home/nixos/filesystem" =
-    { device = "/dev/disk/by-uuid/66deb3f5-7c03-4790-a944-bfb02fda0056";
+    { device = "/dev/disk/by-uuid/0e7da15e-ece3-4aef-9915-506c18747584";
       fsType = "ext4";
     };
 
-  fileSystems."/mnt" =
-    { device = "/dev/disk/by-uuid/b8035164-79b7-4ad0-8796-1e1417b5b8e9";
-      fsType = "ext4";
-    };
-
-  fileSystems."/mnt/boot" =
-    { device = "/dev/disk/by-uuid/968D-593A";
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/C49D-6C72";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/7110e4d1-a203-4f3a-b572-20710ea56503"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
