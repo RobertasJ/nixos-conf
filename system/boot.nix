@@ -30,7 +30,7 @@
     ];
 
     loader = {
-      timeout = if computer.current == computer.laptop then 0 else 5;
+      timeout = 5;
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 10;
