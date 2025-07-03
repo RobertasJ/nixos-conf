@@ -26,6 +26,7 @@
     qmk
     megasync
     ffmpeg
+    caligula # etcher
 
     # Applications
     vesktop
