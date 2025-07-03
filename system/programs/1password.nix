@@ -7,8 +7,4 @@
     # require enabling PolKit integration on some desktop environments (e.g. Plasma).
     polkitPolicyOwners = [ user ];
   };
-  programs.ssh.extraConfig = ''
-    Host *
-      IdentityAgent ~/.1password/agent.sock
-  '';
 }

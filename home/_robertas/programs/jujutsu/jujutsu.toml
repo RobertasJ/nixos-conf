@@ -5,3 +5,6 @@ default-command = "log"
 [user]
 name = "RobertasJ"
 email = "robertasj8@gmail.com"
+
+[git]
+subprocess = true

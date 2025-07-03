@@ -56,6 +56,7 @@
             {
               nixpkgs.config = {
                 allowUnfree = true;
+                android_sdk.accept_license = true;
               };
               nix.settings.experimental-features = [
                 "nix-command"
@@ -71,7 +72,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+              home-manager.sharedModules = [
+                plasma-manager.homeManagerModules.plasma-manager
+              ];
               home-manager.users.${user} = import ./home.nix args;
               home-manager.backupFileExtension = "backup";
             }
