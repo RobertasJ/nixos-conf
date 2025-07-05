@@ -23,6 +23,60 @@
         };
       };
       vim_mode = true;
+      lsp = {
+        rust-analyzer = {
+          initialization_options = {
+            inlayHints = {
+              closureReturnTypeHints = {
+                enable = "always";
+              };
+            };
+            cargo = {
+              features = [ ];
+            };
+          };
+          completion = {
+            snippets = {
+              custom = {
+                "Arc::new" = {
+                  postfix = "arc";
+                  body = [ "Arc::new(\${receiver})" ];
+                  requires = "std::sync::Arc";
+                  scope = "expr";
+                };
+                "Some" = {
+                  postfix = "some";
+                  body = [ "Some(\${receiver})" ];
+                  scope = "expr";
+                };
+                "Ok" = {
+                  postfix = "ok";
+                  body = [ "Ok(\${receiver})" ];
+                  scope = "expr";
+                };
+                "Rc::new" = {
+                  postfix = "rc";
+                  body = [ "Rc::new(\${receiver})" ];
+                  requires = "std::rc::Rc";
+                  scope = "expr";
+                };
+                "Box::pin" = {
+                  postfix = "boxpin";
+                  body = [ "Box::pin(\${receiver})" ];
+                  requires = "std::boxed::Box";
+                  scope = "expr";
+                };
+                "vec!" = {
+                  postfix = "vec";
+                  body = [ "vec![\${receiver}]" ];
+                  description = "vec![]";
+                  scope = "expr";
+                };
+              };
+            };
+          };
+        };
+      };
       languages = {
         Nix = {
           language_servers = [
