@@ -8,6 +8,7 @@
       nixd
       nil
       nixfmt-rfc-style
+      package-version-server
     ];
     extensions = [
       "nix"
