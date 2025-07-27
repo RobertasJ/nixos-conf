@@ -14,6 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    zed-extensions = {
+      url = "github:DuskSystems/nix-zed-extensions";
+    };
   };
 
   outputs =
@@ -21,6 +25,7 @@
       nixpkgs,
       home-manager,
       plasma-manager,
+      zed-extensions,
       ...
     }@inputs:
     let
@@ -64,6 +69,13 @@
               ];
             }
 
+            # overlays
+            {
+              nixpkgs.overlays = [
+                zed-extensions.overlays.default
+              ];
+            }
+
             # Core system configuration
             ./configuration.nix
 
@@ -74,6 +86,7 @@
               home-manager.useUserPackages = true;
               home-manager.sharedModules = [
                 plasma-manager.homeManagerModules.plasma-manager
+                zed-extensions.homeManagerModules.default
               ];
               home-manager.users.${user} = import ./home.nix args;
               home-manager.backupFileExtension = "backup";

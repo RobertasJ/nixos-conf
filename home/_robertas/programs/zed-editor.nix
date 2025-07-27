@@ -1,21 +1,20 @@
 { pkgs, ... }:
 {
+
+  programs.zed-editor-extensions = {
+    enable = true;
+    packages = with pkgs.zed-extensions; [
+      nix
+      toml
+      vscode-dark-modern
+      color-highlight
+    ];
+  };
+
   programs.zed-editor = {
     enable = true;
-    extraPackages = with pkgs; [
-      rustfmt
-      rust-analyzer
-      nixd
-      nil
-      nixfmt-rfc-style
-      package-version-server
-    ];
-    extensions = [
-      "nix"
-      "toml"
-      "bash"
-      "vscode-dark-plus"
-    ];
+
+    package = pkgs.zed-editor-fhs;
 
     userSettings = {
       terminal = {
@@ -77,6 +76,7 @@
             };
           };
         };
+
       };
       languages = {
         Nix = {
