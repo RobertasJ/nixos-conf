@@ -8,16 +8,11 @@
     kdePackages.plasma-browser-integration
 
     # Development
-    rustc
-    rust-analyzer
-    rustfmt
-    cargo
-    clippy
+    rustup
     gcc
     nixd
     nil
     nixfmt-rfc-style
-    vscode-fhs
     android-studio-full
     rocmPackages.clang
 
