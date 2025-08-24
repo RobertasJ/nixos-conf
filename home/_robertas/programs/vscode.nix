@@ -14,14 +14,10 @@
         tamasfe.even-better-toml
         eamodio.gitlens
         ms-vsliveshare.vsliveshare
+        jnoortheen.nix-ide
+        arrterian.nix-env-selector
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "nix-extension-pack";
-          publisher = "pinage404";
-          version = "3.0.0";
-          sha256 = "sha256-cWXd6AlyxBroZF+cXZzzWZbYPDuOqwCZIK67cEP5sNk=";
-        }
         {
           name = "dioxus";
           publisher = "DioxusLabs";
@@ -34,9 +30,16 @@
           version = "1.3.1";
           sha256 = "sha256-N5f3daQyhvBh1u4qjFpWMZzeLQzPMh+E7+du+4fC4pI=";
         }
+        {
+          name = "jjk";
+          publisher = "jjk";
+          version = "0.8.1";
+          sha256 = "sha256-2JUn6wkWgZKZzhitQy6v9R/rCNLrt7DBtt59707hp6c=";
+        }
       ];
 
     profiles.default.userSettings = {
+      git.enabled = false;
       editor.formatOnSave = true;
       editor.formatOnPaste = true;
       vim = {
